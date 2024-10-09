@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="X01"/>
+        <attribute name="authors" value="indah"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-09 04:12:55 PM"/>
+        <attribute name="created" value="aW5kYWg7SU5EQUhIU0hOXzsyMDI0LTEwLTA5OzAzOjQ4OjUzIFBNOzI1NTc="/>
+        <attribute name="edited" value="aW5kYWg7SU5EQUhIU0hOXzsyMDI0LTEwLTA5OzA0OjEyOjU1IFBNOzI7MjY2MA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="TotalHarga, Buku" type="Real" array="False" size=""/>
+            <assign variable="TotalHarga" expression="0"/>
+            <assign variable="Buku" expression="0"/>
+            <declare name="Termurah" type="Real" array="False" size=""/>
+            <assign variable="Termurah" expression="100"/>
+            <input variable="Buku"/>
+            <while expression="Buku !=0">
+                <if expression="Termurah&lt;=Buku">
+                    <then>
+                        <assign variable="Buku" expression="Buku"/>
+                    </then>
+                    <else>
+                        <assign variable="Termurah" expression="Buku"/>
+                    </else>
+                </if>
+                <assign variable="TotalHarga" expression="TotalHarga+Buku"/>
+                <input variable="Buku"/>
+            </while>
+            <if expression="TotalHarga&gt;=100">
+                <then>
+                    <assign variable="TotalHarga" expression="TotalHarga-Termurah"/>
+                </then>
+                <else>
+                    <assign variable="TotalHarga" expression="TotalHarga"/>
+                </else>
+            </if>
+            <output expression="ToFixed(TotalHarga,2)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
